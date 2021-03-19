@@ -1,0 +1,17 @@
+import csv
+
+class Employee:
+    def __init__(self, name, surname, age, salary):
+        self.name = name
+        self.surname = surname
+        self.age = age
+        self.salary = salary
+
+
+
+employee_list = []
+with open('dataset1.csv', 'r') as f:
+    list = csv.reader(f)
+    for row in list:
+        employee_list.append(Employee(row[0], row[1], int(row[2]), int(row[3])))
+        print(row)
