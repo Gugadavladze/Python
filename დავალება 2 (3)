@@ -1,0 +1,41 @@
+class Animal:
+    def __init__(self, saxeli, asaki):
+        self._saxeli = saxeli
+        self.__asaki = asaki
+
+    def info(self):
+        return f"Saxeli - {self._saxeli}, Asaki - {self.__asaki}"
+
+    def get_saxeli(self):
+        return self._saxeli
+
+    def set_saxeli(self, saxeli):
+        self._saxeli = saxeli
+
+    def get_asaki(self):
+        return self.__asaki
+
+
+class Dog(Animal):
+    def __init__(self, saxeli, asaki, jishi, feri):
+        super().__init__(saxeli, asaki)
+        self._jishi = jishi
+        self.__feri = feri
+
+    def info(self):
+        return Animal.info(self) + f"  Jishi - {self._jishi}, Feri - {self.__feri}"
+
+    def get_jishi(self):
+        return self._jishi
+
+    def set_jishi(self, jishi):
+        self._jishi = jishi
+
+    def get_feri(self):
+        return self.__feri
+
+
+
+if __name__ == '__main__':
+    d = Dog("Dog", "5", "Dog", "White")
+    print(d.info())
