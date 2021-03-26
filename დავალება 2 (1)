@@ -1,0 +1,32 @@
+class Book:
+    def __init__(self, saxeli, avtori, gamoshvebis_weli, gverdebis_raodenoba):
+        self._saxeli = saxeli
+        self._avtori = avtori
+        self.__gamoshvebis_weli = gamoshvebis_weli
+        self.__gverdebis_raodenoba = gverdebis_raodenoba
+
+    def info(self):
+        return f"Saxeli- {self._saxeli}, Avtori - {self._avtori}, Gamoshvebis weli - {self.__gamoshvebis_weli}, Gverdebis raodenoba - {self.__gverdebis_raodenoba}"
+
+    def get_saxeli(self):
+        return self._saxeli
+
+    def set_saxeli(self, saxeli):
+        self._saxeli = saxeli
+
+    def get_avtori(self):
+        return self._avtori
+
+    def set_avtori(self, avtori):
+        self._avtori = avtori
+
+    def get_gamoshvebis_weli(self):
+        return self.__gamoshvebis_weli
+
+    def get_gverdebis_raodenoba(self):
+        return self.__gverdebis_raodenoba
+
+
+if __name__ == '__main__':
+    b = Book("The Trial", "Franz kafka", "1925", "400")
+    print(b.info())
