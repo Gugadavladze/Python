@@ -1,0 +1,19 @@
+class CallMixin:
+    def call(self, call):
+        print(p.info(), "call - " + call)
+
+
+
+class Person(CallMixin):
+    def __init__(self, fname, lname, phone):
+        self.fname = fname
+        self.lname = lname
+        self.phone = phone
+
+
+    def info(self):
+        return f"First Name - {self.fname}, Last Name - {self.lname}, Phone - {self.phone},"
+
+
+p = Person("Guga", "Davladze", "312312")
+p.call("ggggg")
