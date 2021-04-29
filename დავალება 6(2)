@@ -1,0 +1,24 @@
+import requests
+
+a = ["https://httpbin.org/image/jpeg","https://httpbin.org/image/png","https://httpbin.org/image/svg","https://httpbin.org/image/webp"]
+
+mapping = {
+        "image/jpeg" : "jpg",
+        "image/png" : "png",
+        "image/svg" : "svg",
+        "image/webp" : "webp",
+}
+for i in a:
+        response = requests.get(i)
+        if response.headers["content-type"] == "image/jpeg":
+                with open(f"test_resp1.{mapping['image/jpeg']}","wb") as f:
+                        f.write(response.content)
+        elif response.headers["content-type"] == "image/png":
+                with open(f"test_resp1.{mapping['image/png']}","wb") as f:
+                        f.write(response.content)
+        elif response.headers["content-type"] == "image/svg":
+                with open(f"test_resp1.{mapping['image/svg']}","wb") as f:
+                        f.write(response.content)
+        else:
+                with open(f"test_resp1.{mapping['image/webp']}","wb") as f:
+                        f.write(response.content)
