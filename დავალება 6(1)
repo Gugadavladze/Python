@@ -1,0 +1,14 @@
+import requests
+
+response = requests.get("https://www.mes.gov.ge/index.php?lang=geo")
+if  response.status_code == 200:
+    with open("result.png", "wb") as f:
+        f.write(response.content)
+    text_data = response.text
+    text_data = text_data.lower()
+    edu_count = text_data.count("განათლება")
+    print("განათლება - ", edu_count)
+
+else:
+    print(f"request was unsuccessful. Status code - {response.status_code}")
+    
