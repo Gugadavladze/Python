@@ -22,3 +22,7 @@ for i in a:
         else:
                 with open(f"test_resp1.{mapping['image/webp']}","wb") as f:
                         f.write(response.content)
+                        
+        headers = dict(response.headers)
+        print(headers["Content-Type"])
+
