@@ -1,0 +1,110 @@
+# import json
+# import requests
+#
+# SERVICE_URL = "https://crudcrud.com/api/a5e2387191034828ac87317da7f726b8"
+# header = {"content-type": "application/json"}
+#
+# list1 = {
+#    "employees": [
+#     {"id": 1, "name": "Nichola", "surname": "Davies", "age": 34, "gender": "male", "salary": 1230},
+#     ],
+# }
+# list2 = {
+#    "employees": [
+#     {"id": 2, "name": "Deirdre", "surname": "Paterson", "age": 41, "gender": "Female", "salary": 1000},
+#     ],
+# }
+# list3 = {
+#    "employees": [
+#     {"id": 3, "name": "Sonia", "surname": "Butler", "age": 28, "gender": "Female", "salary": 1500},
+#     ],
+# }
+# list4 = {
+#    "employees": [
+#     {"id": 4, "name": "Jacob", "surname": "Metcalfe", "age": 42, "gender": "Male", "salary": 2000},
+#     ],
+# }
+# list5 = {
+#    "employees": [
+#     {"id": 5, "name": "Fiona", "surname": "Clarkson", "age": 39, "gender": "Female", "salary": 1850},
+#     ],
+# }
+#
+# response = requests.post(f"{SERVICE_URL}/employees/", data=json.dumps(list2), headers=header)
+# response = requests.post(f"{SERVICE_URL}/employees/", data=json.dumps(list1), headers=header)
+# response = requests.post(f"{SERVICE_URL}/employees/", data=json.dumps(list3), headers=header)
+# response = requests.post(f"{SERVICE_URL}/employees/", data=json.dumps(list4), headers=header)
+# response = requests.post(f"{SERVICE_URL}/employees/", data=json.dumps(list5), headers=header)
+
+# if 200 <= response.status_code < 300:
+#    print(f"Finished. Status code - {response.status_code}",)
+# else:
+#    print(f"Error. Status code - {response.status_code}")
+
+
+
+
+# import json
+# from pprint import pprint
+#
+# import requests
+#
+# SERVICE_URL = "https://crudcrud.com/api/a5e2387191034828ac87317da7f726b8"
+#
+# response = requests.get(f"{SERVICE_URL}/employees")
+# if 200 <= response.status_code < 300:
+#    data = json.loads(response.text)
+#    pprint(data)
+# else:
+#    print(f"Error. Status code - {response.status_code}")
+
+
+
+
+import json
+import requests
+
+SERVICE_URL = "https://crudcrud.com/api/a5e2387191034828ac87317da7f726b8"
+header = {"content-type": "application/json"}
+
+list1 = {
+   "employees": [
+    {"id": 1, "name": "Nicholas", "surname": "Davies", "age": 34, "gender": "male", "salary": 1230},
+    ],
+}
+list2 = {
+   "employees": [
+    {"id": 2, "name": "Deirdre", "surname": "Paterson", "age": 41, "gender": "Female", "salary": 1000},
+    ],
+}
+list3 = {
+   "employees": [
+    {"id": 3, "name": "Sonia", "surname": "Butler", "age": 28, "gender": "Female", "salary": 1700},
+    ],
+}
+list4 = {
+   "employees": [
+    {"id": 4, "name": "Jacob", "surname": "Metcalfe", "age": 42, "gender": "Male", "salary": 2000},
+    ],
+}
+list5 = {
+   "employees": [
+    {"id": 5, "name": "Fiona", "surname": "Clarkson", "age": 40, "gender": "Female", "salary": 1850},
+    ],
+}
+
+list_one = "09db00013120c03e81ca6cf"
+list_three = "609db00013120c03e81ca6cf"
+list_five = "609db00113120c03e81ca6d1"
+list_four = "609db00013120c03e81ca6d0"
+
+response = requests.put(f"{SERVICE_URL}/employees/{list_one}", data=json.dumps(list2), headers=header)
+response = requests.put(f"{SERVICE_URL}/employees/", data=json.dumps(list1), headers=header)
+response = requests.put(f"{SERVICE_URL}/employees/{list_three}", data=json.dumps(list3), headers=header)
+response = requests.delete(f"{SERVICE_URL}/employees/{list_four}")
+response = requests.put(f"{SERVICE_URL}/employees/{list_five}", data=json.dumps(list5), headers=header)
+
+if 200 <= response.status_code < 300:
+   print(f"Finished. Status code - {response.status_code}",)
+else:
+   print(f"Error. Status code - {response.status_code}")
