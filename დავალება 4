@@ -1,0 +1,61 @@
+import sqlite3
+from pprint import pprint
+
+connection = sqlite3.connect("census.db")
+
+cursor = connection.cursor()
+cursor.execute("CREATE TABLE IF NOT EXISTS density(province_or_territory TEXT, population INTEGER, land_area REAL)")
+
+
+# cursor.execute("INSERT INTO main.density VALUES ('Newfoundland and Labrador', 512930, 370501.69)")
+# cursor.execute("INSERT INTO main.density VALUES ('Prince Edward Island', 135294, 5684.39)")
+# cursor.execute("INSERT INTO main.density VALUES ('Nova Scotia ', 908007, 52917.43)")
+# cursor.execute("INSERT INTO main.density VALUES ('New Brunswick', 729498 , 71355.67)")
+# cursor.execute("INSERT INTO main.density VALUES ('Quebec', 7237479, 1357743.08)")
+# cursor.execute("INSERT INTO main.density VALUES ('Ontario', 11410046, 907655.59)")
+# cursor.execute("INSERT INTO main.density VALUES ('Manitoba', 1119583, 551937.87)")
+# cursor.execute("INSERT INTO main.density VALUES ('Saskatchewan', 978933, 586561.35)")
+# cursor.execute("INSERT INTO main.density VALUES ('Alberta', 2974807, 639987.12)")
+# cursor.execute("INSERT INTO main.density VALUES ('British Columbia', 3907738, 926492.48)")
+# cursor.execute("INSERT INTO main.density VALUES ('Yukon Territory ', 28674, 474706.97)")
+# cursor.execute("INSERT INTO main.density VALUES ('Northwest Territories', 37360, 1141108.37)")
+# cursor.execute("INSERT INTO main.density VALUES ('Nunavut ', 26745, 1925460.18)")
+
+# connection.commit()
+
+# pprint(cursor.execute("SELECT * FROM main.density").fetchall())      # ყველას დაბეჭდვა
+
+
+# cursor.execute("SELECT population FROM density")  # მხოლოდ მოსახლეობის დაბეჭდვა
+# for r in cursor:
+#     print(r)
+# connection.close()
+
+# cursor.execute("SELECT province_or_territory FROM density WHERE population < 1000000")  # 1მილიონზე ნაკლები მოსახლეობა
+# for r in cursor:
+#     print(r)
+# connection.close()
+
+# cursor.execute("SELECT province_or_territory FROM density WHERE population < 1000000 OR population > 5000000") # მეტი 1მილიონზე ან ნაკლები 5 მილიონზე
+# for r in cursor:
+#     print(r)
+# connection.close()
+
+# cursor.execute("SELECT province_or_territory FROM density WHERE population > 1000000 AND population < 5000000") # 1მილიონზე მეტი და 5მილიონზე ნაკლები
+# for r in cursor:
+#     print(r)
+# connection.close()
+
+# cursor.execute("SELECT population FROM density WHERE land_area > 200000") # ფართობი მეტია 200000
+# for r in cursor:
+#     print(r)
+# connection.close()
+
+cursor.execute("SELECT province_or_territory, population/land_area FROM density") # ყველა პროვინციას, მოსახლეობის სიმჭიდროვესთან ერთად
+for r in cursor:
+    print(r)
+connection.close()
+
+
+# if __name__ == '__main__':
+#     print("Finished")
